@@ -155,7 +155,7 @@ class ExtractionTestCase(DataTestCase):
                                               column_value="val", n_jobs=self.n_jobs)
 
         self.assertIsInstance(extracted_features, pd.DataFrame)
-        self.assertTrue(set(df["id"]) == set(extracted_features.index))
+        self.assertEqual(set(df["id"]), set(extracted_features.index))
 
 
 class ParallelExtractionTestCase(DataTestCase):
