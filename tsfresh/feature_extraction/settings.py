@@ -146,7 +146,7 @@ class ComprehensiveFCParameters(dict):
             "ratio_beyond_r_sigma": [{"r": x} for x in [0.5, 1, 1.5, 2, 2.5, 3, 5, 6, 7, 10]]
         })
 
-        super(ComprehensiveFCParameters, self).__init__(name_to_param)
+        super().__init__(name_to_param)
 
 
 class MinimalFCParameters(ComprehensiveFCParameters):

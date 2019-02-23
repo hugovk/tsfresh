@@ -98,7 +98,7 @@ class ExtractionTestCase(DataTestCase):
                                                           column_value="val",
                                                           n_jobs=self.n_jobs).sort_index()
 
-        six.assertCountEqual(self, extracted_features.columns, extracted_features_from_random.columns)
+        self.assertCountEqual(extracted_features.columns, extracted_features_from_random.columns)
 
         for col in extracted_features:
             self.assertIsNone(np.testing.assert_array_almost_equal(extracted_features[col],
@@ -147,7 +147,7 @@ class ExtractionTestCase(DataTestCase):
         features_serial = extract_features(df, column_id="id", column_sort="sort", column_kind="kind",
                                            column_value="val", n_jobs=0)
 
-        six.assertCountEqual(self, features_parallel.columns, features_serial.columns)
+        self.assertCountEqual(features_parallel.columns, features_serial.columns)
 
         for col in features_parallel.columns:
             np.testing.assert_array_almost_equal(features_parallel[col], features_serial[col])
